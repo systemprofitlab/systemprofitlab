@@ -85,7 +85,7 @@ export default function ProfessionalLanding() {
           <p className="text-green-400 text-xl">Redirecting you...</p>
         ) : (
           <>
-            <Input placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} className="mb-4" />
+            <Input placeholder="Enter your email" value={email} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)} className="mb-4" />
             <Button className="bg-indigo-500 hover:bg-indigo-600 px-6 py-3 rounded-3xl w-full" onClick={handleSubmit}>
               Get Instant Access
             </Button>

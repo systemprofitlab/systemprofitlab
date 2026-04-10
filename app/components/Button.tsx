@@ -1,12 +1,20 @@
-"use client";
 import React from "react";
 
-export default function Button({ children, className, onClick }: any) {
+type ButtonProps = {
+  children: React.ReactNode;
+  onClick?: () => void;
+  className?: string;
+  type?: "button" | "submit" | "reset";
+};
+
+export default function Button({
+  children,
+  onClick,
+  className = "",
+  type = "button",
+}: ButtonProps) {
   return (
-    <button
-      className={`transition-all duration-300 hover:scale-105 hover:shadow-lg ${className}`}
-      onClick={onClick}
-    >
+    <button onClick={onClick} className={className} type={type}>
       {children}
     </button>
   );
