@@ -1,22 +1,27 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import Button from "./Button";
+
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+  const [solid, setSolid] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const update = () => setSolid(window.scrollY > 24);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
   }, []);
 
   return (
-    <nav className={`fixed w-full top-0 z-50 transition-all duration-500 ${scrolled ? "bg-gray-900 shadow-lg" : "bg-transparent"} flex justify-between items-center px-8 py-4`}>
-      <h1 className="text-2xl font-bold">SystemProfitLab</h1>
-      <Button className="bg-indigo-500 hover:bg-indigo-600 px-6 py-2 rounded-3xl text-lg">
-        Start Free
-      </Button>
-    </nav>
+    <header className={`navbar ${solid ? "solid" : ""}`}>
+      <a className="brand" href="#top">
+        SystemProfitLab
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#system">System</a>
+        <a href="#automation">Automation</a>
+        <a href="#start">Start</a>
+      </nav>
+    </header>
   );
 }

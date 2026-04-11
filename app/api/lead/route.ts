@@ -1,28 +1,48 @@
-import { NextResponse } from "next/server";
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export async function POST(req: Request) {
+export async function POST(request: Request) {
   try {
-    const body = await req.json();
-    const { email } = body;
+    const body = (await request.json()) as { email?: unknown };
+    const email = typeof body.email === "string" ? body.email.trim() : "";
 
-    if (!email) {
-      return NextResponse.json(
-        { error: "Email is required" },
-        { status: 400 }
+    if (!email || !emailPattern.test(email)) {
+      return Response.json(
+        { error: "Enter a valid email address." },
+        { status: 400 },
       );
     }
 
-    // TEMP: log email (you can replace this with database later)
-    console.log("New lead captured:", email);
+    const webhookUrl = process.env.LEAD_WEBHOOK_URL;
 
-    return NextResponse.json(
-      { success: true, message: "Lead captured" },
-      { status: 200 }
-    );
-  } catch (error) {
-    return NextResponse.json(
-      { error: "Server error" },
-      { status: 500 }
+    if (webhookUrl) {
+      const webhookResponse = await fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          source: "systemprofitlab",
+          capturedAt: new Date().toISOString(),
+        }),
+      });
+
+      if (!webhookResponse.ok) {
+        return Response.json(
+          { error: "Lead service is unavailable. Please try again." },
+          { status: 502 },
+        );
+      }
+    } else {
+      console.info("New SystemProfitLab lead:", email);
+    }
+
+    return Response.json({
+      success: true,
+      message: "You are in. Opening the next step now.",
+    });
+  } catch {
+    return Response.json(
+      { error: "We could not capture that lead. Please try again." },
+      { status: 500 },
     );
   }
 }

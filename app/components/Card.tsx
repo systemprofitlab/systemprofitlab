@@ -1,14 +1,10 @@
-import React from "react";
+import type { ReactNode } from "react";
 
 type CardProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
 };
 
 export default function Card({ children, className = "" }: CardProps) {
-  return (
-    <div className={`p-6 rounded-xl bg-gray-900 ${className}`}>
-      {children}
-    </div>
-  );
+  return <div className={`panel ${className}`.trim()}>{children}</div>;
 }

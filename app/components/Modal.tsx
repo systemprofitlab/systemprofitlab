@@ -1,25 +1,34 @@
-import React from "react";
+"use client";
+
+import type { ReactNode } from "react";
 
 type ModalProps = {
   isOpen: boolean;
   onClose: () => void;
-  children: React.ReactNode;
+  title: string;
+  children: ReactNode;
 };
 
-export default function Modal({ isOpen, onClose, children }: ModalProps) {
+export default function Modal({ isOpen, onClose, title, children }: ModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/70 flex items-center justify-center">
-      <div className="bg-gray-900 p-6 rounded-xl relative w-full max-w-md">
-        <button
-          className="absolute top-2 right-3 text-white"
-          onClick={onClose}
-        >
-          ✕
-        </button>
+    <div className="modalBackdrop" role="presentation" onMouseDown={onClose}>
+      <section
+        className="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        onMouseDown={(event) => event.stopPropagation()}
+      >
+        <div className="modalHeader">
+          <h2 id="modal-title">{title}</h2>
+          <button className="closeButton" onClick={onClose} type="button">
+            Close
+          </button>
+        </div>
         {children}
-      </div>
+      </section>
     </div>
   );
 }

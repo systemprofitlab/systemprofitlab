@@ -1,27 +1,7 @@
-import React from "react";
+import type { InputHTMLAttributes } from "react";
 
-type InputProps = {
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  placeholder?: string;
-  className?: string;
-  type?: string;
-};
+type InputProps = InputHTMLAttributes<HTMLInputElement>;
 
-export default function Input({
-  value,
-  onChange,
-  placeholder,
-  className = "",
-  type = "text",
-}: InputProps) {
-  return (
-    <input
-      value={value}
-      onChange={onChange}
-      placeholder={placeholder}
-      className={className}
-      type={type}
-    />
-  );
+export default function Input({ className = "", ...props }: InputProps) {
+  return <input className={`input ${className}`.trim()} {...props} />;
 }

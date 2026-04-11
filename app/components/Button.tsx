@@ -1,20 +1,17 @@
-import React from "react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 
-type ButtonProps = {
-  children: React.ReactNode;
-  onClick?: () => void;
-  className?: string;
-  type?: "button" | "submit" | "reset";
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  children: ReactNode;
 };
 
 export default function Button({
   children,
-  onClick,
   className = "",
   type = "button",
+  ...props
 }: ButtonProps) {
   return (
-    <button onClick={onClick} className={className} type={type}>
+    <button className={`button ${className}`.trim()} type={type} {...props}>
       {children}
     </button>
   );

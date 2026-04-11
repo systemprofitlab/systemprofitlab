@@ -1,11 +1,13 @@
-"use client";
-import React from "react";
+type TestimonialProps = {
+  quote: string;
+  name: string;
+};
 
-export default function Testimonial({ quote, name }: any) {
+export default function Testimonial({ quote, name }: TestimonialProps) {
   return (
-    <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 text-center">
-      <p className="text-gray-300 mb-4">"{quote}"</p>
-      <p className="text-indigo-400 font-semibold">{name}</p>
-    </div>
+    <figure className="testimonial">
+      <blockquote>{quote}</blockquote>
+      <figcaption>{name}</figcaption>
+    </figure>
   );
 }
