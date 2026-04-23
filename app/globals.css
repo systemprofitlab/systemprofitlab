@@ -353,9 +353,9 @@ h3 {
   background: var(--panel);
   border-radius: 8px;
   box-shadow: var(--shadow);
-  max-width: 540px;
-  padding: 24px;
-  width: min(100%, 540px);
+  max-width: 620px;
+  padding: 28px;
+  width: min(100%, 620px);
 }
 
 .modalHeader {
@@ -370,18 +370,66 @@ h3 {
   margin: 0;
 }
 
+.modalIntro {
+  border-bottom: 1px solid #e4e9e4;
+  margin-top: 16px;
+  padding-bottom: 18px;
+}
+
+.modalEyebrow {
+  color: var(--warm);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.modalText {
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.modalChecklist {
+  color: var(--ink);
+  display: grid;
+  gap: 10px;
+  line-height: 1.5;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.modalFormShell {
+  background: #f7faf6;
+  border: 1px solid #e4e9e4;
+  border-radius: 8px;
+  margin-top: 18px;
+  padding: 18px;
+}
+
 .modal .leadForm {
   color: var(--ink);
-  margin-top: 18px;
+  margin-top: 0;
 }
 
 .modal .leadForm label {
   color: var(--ink);
 }
 
+.modal .leadFields {
+  grid-template-columns: 1fr;
+}
+
 .modal .input {
   background: #ffffff;
   border-color: #c6cfca;
+  min-height: 52px;
+}
+
+.modal .button {
+  justify-content: center;
+  width: 100%;
 }
 
 .modal .formNote {
@@ -504,6 +552,14 @@ h3 {
   .confirmationLink {
     text-align: center;
     width: 100%;
+  }
+
+  .modal {
+    padding: 22px;
+  }
+
+  .modalFormShell {
+    padding: 16px;
   }
 }
 

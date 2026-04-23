@@ -89,7 +89,19 @@ export default function LeadForm({ variant }: LeadFormProps) {
         <a href="#system">See the system</a>
       </div>
       <Modal isOpen={open} onClose={() => setOpen(false)} title="Get the system">
-        {form}
+        <div className="modalIntro">
+          <p className="modalEyebrow">Free access</p>
+          <p className="modalText">
+            Enter your email to get the SystemProfitLab starter system and the
+            next step for putting it to work.
+          </p>
+          <ul className="modalChecklist">
+            <li>Simple traffic and follow-up structure</li>
+            <li>Immediate next-step access after submit</li>
+            <li>Email delivery confirmation from SystemProfitLab</li>
+          </ul>
+        </div>
+        <div className="modalFormShell">{form}</div>
       </Modal>
     </>
   );
