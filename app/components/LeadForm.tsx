@@ -11,9 +11,6 @@ type LeadFormProps = {
   variant: "hero" | "inline";
 };
 
-const redirectUrl =
-  process.env.NEXT_PUBLIC_AFFILIATE_URL || "https://www.systemprofitlab.com";
-
 export default function LeadForm({ variant }: LeadFormProps) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<FormState>("idle");
@@ -38,10 +35,11 @@ export default function LeadForm({ variant }: LeadFormProps) {
       }
 
       setStatus("success");
-      setMessage(data.message || "You are in. Opening the next step now.");
+      setMessage(data.message || "You are in. Sending you to the next step now.");
       window.setTimeout(() => {
-        window.location.assign(redirectUrl);
-      }, 900);
+        const params = new URLSearchParams({ email });
+        window.location.assign(`/confirmation?${params.toString()}`);
+      }, 700);
     } catch (error) {
       setStatus("error");
       setMessage(error instanceof Error ? error.message : "Something went wrong.");
