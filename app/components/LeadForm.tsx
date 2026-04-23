@@ -63,7 +63,10 @@ export default function LeadForm({ variant }: LeadFormProps) {
           disabled={status === "loading" || status === "success"}
           autoComplete="email"
         />
-        <Button disabled={status === "loading" || status === "success"}>
+        <Button
+          type="submit"
+          disabled={status === "loading" || status === "success"}
+        >
           {status === "loading" ? "Sending..." : "Get Instant Access"}
         </Button>
       </div>
