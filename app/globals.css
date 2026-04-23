@@ -370,6 +370,32 @@ h3 {
   margin: 0;
 }
 
+.modal .leadForm {
+  color: var(--ink);
+  margin-top: 18px;
+}
+
+.modal .leadForm label {
+  color: var(--ink);
+}
+
+.modal .input {
+  background: #ffffff;
+  border-color: #c6cfca;
+}
+
+.modal .formNote {
+  color: var(--muted);
+}
+
+.modal .formMessage.success {
+  color: var(--accent-strong);
+}
+
+.modal .formMessage.error {
+  color: #b42318;
+}
+
 .closeButton {
   background: transparent;
   border: 1px solid var(--line);
