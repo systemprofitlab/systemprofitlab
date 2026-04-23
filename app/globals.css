@@ -338,121 +338,68 @@ h3 {
   color: #b42318;
 }
 
-.modalBackdrop {
+.capturePage {
   align-items: center;
-  background: rgba(16, 22, 20, 0.72);
+  background:
+    linear-gradient(180deg, #f6f8f4 0%, #e7efe9 100%);
   display: flex;
-  inset: 0;
   justify-content: center;
-  padding: 20px;
-  position: fixed;
-  z-index: 20;
+  min-height: 100svh;
+  padding: 24px;
 }
 
-.modal {
+.captureCard {
   background: var(--panel);
+  border: 1px solid var(--line);
   border-radius: 8px;
   box-shadow: var(--shadow);
-  max-width: 620px;
-  padding: 28px;
-  width: min(100%, 620px);
+  max-width: 720px;
+  padding: clamp(28px, 6vw, 48px);
+  width: min(100%, 720px);
 }
 
-.modalHeader {
-  align-items: center;
-  display: flex;
-  gap: 16px;
-  justify-content: space-between;
-}
-
-.modalHeader h2 {
-  font-size: 1.5rem;
-  margin: 0;
-}
-
-.modalIntro {
-  border-bottom: 1px solid #e4e9e4;
-  margin-top: 16px;
-  padding-bottom: 18px;
-}
-
-.modalEyebrow {
-  color: var(--warm);
-  font-size: 0.78rem;
-  font-weight: 900;
-  letter-spacing: 0;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-}
-
-.modalText {
-  color: var(--muted);
-  line-height: 1.7;
+.captureCard h1 {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1;
   margin-bottom: 16px;
 }
 
-.modalChecklist {
+.captureText {
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.captureChecklist {
   color: var(--ink);
   display: grid;
   gap: 10px;
   line-height: 1.5;
-  margin: 0;
+  margin: 0 0 24px;
   padding-left: 20px;
 }
 
-.modalFormShell {
+.captureCard .leadForm.inline {
   background: #f7faf6;
-  border: 1px solid #e4e9e4;
-  border-radius: 8px;
-  margin-top: 18px;
-  padding: 18px;
+  border-color: #e4e9e4;
+  box-shadow: none;
 }
 
-.modal .leadForm {
-  color: var(--ink);
-  margin-top: 0;
-}
-
-.modal .leadForm label {
-  color: var(--ink);
-}
-
-.modal .leadFields {
+.captureCard .leadFields {
   grid-template-columns: 1fr;
 }
 
-.modal .input {
-  background: #ffffff;
-  border-color: #c6cfca;
+.captureCard .input {
   min-height: 52px;
 }
 
-.modal .button {
-  justify-content: center;
+.captureCard .button {
   width: 100%;
 }
 
-.modal .formNote {
-  color: var(--muted);
-}
-
-.modal .formMessage.success {
-  color: var(--accent-strong);
-}
-
-.modal .formMessage.error {
-  color: #b42318;
-}
-
-.closeButton {
-  background: transparent;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  color: var(--ink);
-  cursor: pointer;
-  font: inherit;
-  font-weight: 800;
-  padding: 9px 12px;
+.captureLinks {
+  margin-top: 18px;
 }
 
 .footer {
@@ -554,12 +501,8 @@ h3 {
     width: 100%;
   }
 
-  .modal {
-    padding: 22px;
-  }
-
-  .modalFormShell {
-    padding: 16px;
+  .captureCard {
+    padding: 24px;
   }
 }
 

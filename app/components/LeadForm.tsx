@@ -1,9 +1,9 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import Link from "next/link";
 import Button from "./Button";
 import Input from "./Input";
-import Modal from "./Modal";
 
 type FormState = "idle" | "loading" | "success" | "error";
 
@@ -15,7 +15,6 @@ export default function LeadForm({ variant }: LeadFormProps) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<FormState>("idle");
   const [message, setMessage] = useState("");
-  const [open, setOpen] = useState(false);
 
   async function submitLead(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -83,26 +82,11 @@ export default function LeadForm({ variant }: LeadFormProps) {
   }
 
   return (
-    <>
-      <div className="heroActions">
-        <Button onClick={() => setOpen(true)}>Get Your Free System</Button>
-        <a href="#system">See the system</a>
-      </div>
-      <Modal isOpen={open} onClose={() => setOpen(false)} title="Get the system">
-        <div className="modalIntro">
-          <p className="modalEyebrow">Free access</p>
-          <p className="modalText">
-            Enter your email to get the SystemProfitLab starter system and the
-            next step for putting it to work.
-          </p>
-          <ul className="modalChecklist">
-            <li>Simple traffic and follow-up structure</li>
-            <li>Immediate next-step access after submit</li>
-            <li>Email delivery confirmation from SystemProfitLab</li>
-          </ul>
-        </div>
-        <div className="modalFormShell">{form}</div>
-      </Modal>
-    </>
+    <div className="heroActions">
+      <Link className="button" href="/get-system">
+        Get Your Free System
+      </Link>
+      <a href="#system">See the system</a>
+    </div>
   );
 }
