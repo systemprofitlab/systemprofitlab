@@ -2,8 +2,15 @@ const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(request: Request) {
   try {
-    const body = (await request.json()) as { email?: unknown };
+    const body = (await request.json()) as {
+      email?: unknown;
+      source?: unknown;
+      affiliateType?: unknown;
+    };
     const email = typeof body.email === "string" ? body.email.trim() : "";
+    const source = typeof body.source === "string" ? body.source : "systemprofitlab";
+    const affiliateType =
+      typeof body.affiliateType === "string" ? body.affiliateType : "trial";
 
     if (!email || !emailPattern.test(email)) {
       return Response.json(
@@ -20,7 +27,8 @@ export async function POST(request: Request) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email,
-          source: "systemprofitlab",
+          source,
+          affiliateType,
           capturedAt: new Date().toISOString(),
         }),
       });
@@ -32,7 +40,7 @@ export async function POST(request: Request) {
         );
       }
     } else {
-      console.info("New SystemProfitLab lead:", email);
+      console.info("New SystemProfitLab lead:", { email, source, affiliateType });
     }
 
     return Response.json({

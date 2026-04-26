@@ -1,39 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SystemProfitLab
 
-## Getting Started
+Audience-routed HighLevel affiliate site built with the Next.js App Router.
 
-First, run the development server:
+## Local Development
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Affiliate Click Tracking
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Affiliate buttons route through `app/go/[slug]/route.ts` before redirecting to the final offer URL.
 
-## Learn More
+Tracked fields:
 
-To learn more about Next.js, take a look at the following resources:
+- `offer`
+- `source`
+- `audience`
+- `destination`
+- `clickedAt`
+- `userAgent`
+- `referer`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+By default, click events are written to server logs with `console.info`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To persist them to your own automation stack, set:
 
-## Deploy on Vercel
+```bash
+AFFILIATE_CLICK_WEBHOOK_URL=https://your-webhook-endpoint
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+If the webhook is configured, the app will `POST` the click payload there before redirecting the visitor to the affiliate destination.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-"# profitengine" 
-"# profitengine" 
-"# profitengine" 
+## Lead Capture
+
+Lead submissions use `app/api/lead/route.ts`.
+
+To forward captured leads to your own automation, set:
+
+```bash
+LEAD_WEBHOOK_URL=https://your-webhook-endpoint
+```

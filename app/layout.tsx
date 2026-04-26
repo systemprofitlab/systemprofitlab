@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SystemProfitLab | Traffic, Funnels, and Follow-Up",
+  title: "SystemProfitLab | Stop Losing Leads and Book More Appointments",
   description:
-    "Capture leads, automate follow-up, and turn attention into a repeatable profit system.",
+    "SystemProfitLab helps businesses capture more leads, respond faster, automate follow-up, manage conversations, improve reviews, and replace scattered tools with one HighLevel growth system.",
 };
 
 export default function RootLayout({
