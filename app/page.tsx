@@ -99,9 +99,6 @@ export default function Home() {
       <main>
         <section className="container-shell grid min-h-[calc(100vh-72px)] gap-12 pb-16 pt-28 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:pt-32">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-600 shadow-sm">
-              SaaS affiliate growth hub
-            </div>
             <h1 className="mt-6 text-5xl font-semibold leading-[0.96] text-slate-950 sm:text-6xl lg:text-7xl">
               The smarter path to HighLevel for every growth intent.
             </h1>
