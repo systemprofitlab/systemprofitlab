@@ -1,8 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { buildAffiliateRedirectHref } from "./lib/affiliate";
 import LeadForm from "./components/LeadForm";
 import Navbar from "./components/Navbar";
-import ProductMockup from "./components/ProductMockup";
+import VisualMosaic from "./components/VisualMosaic";
 import { audiencePaths, offers } from "./lib/funnel";
 
 const proofMetrics = [
@@ -36,6 +37,34 @@ const systems = [
   "Reviews",
   "Payments",
   "Automation",
+];
+
+const visualReel = [
+  {
+    src: "/generated/hero-operator-desktop.webp",
+    title: "Lead flow",
+    text: "Capture demand and move it into one system.",
+  },
+  {
+    src: "/hero-business-owner.jpg",
+    title: "Owner clarity",
+    text: "Know which path fits before adding another tool.",
+  },
+  {
+    src: "/generated/section-operator-desktop.webp",
+    title: "AI operations",
+    text: "Make follow-up faster and easier to manage.",
+  },
+  {
+    src: "/generated/hero-operator-mobile.webp",
+    title: "Mobile-ready",
+    text: "Keep the system moving from anywhere.",
+  },
+  {
+    src: "/generated/section-operator-mobile.webp",
+    title: "Simple handoff",
+    text: "Route the next action without confusion.",
+  },
 ];
 
 const selectedPaths = [
@@ -109,6 +138,24 @@ const featuredOffers = offers.filter((offer) =>
   ["ai-employee", "bootcamp-trial", "saas-pro-plan"].includes(offer.slug),
 );
 
+const highlights = [
+  {
+    image: "/generated/hero-operator-desktop.webp",
+    title: "A business owner needs fewer moving parts",
+    text: "The right system connects forms, conversations, calendars, pipeline, and AI follow-up so the business is easier to operate.",
+  },
+  {
+    image: "/hero-business-owner.jpg",
+    title: "A creator needs attention to become a real path",
+    text: "Traffic only matters when it becomes captured leads, nurture, booking, and a clear next offer.",
+  },
+  {
+    image: "/generated/section-operator-desktop.webp",
+    title: "An agency needs delivery that can scale",
+    text: "Client growth needs one operating layer for pipeline, communication, automation, and reporting.",
+  },
+];
+
 export default function Home() {
   return (
     <div className="site-shell">
@@ -151,7 +198,21 @@ export default function Home() {
             </div>
           </div>
 
-          <ProductMockup />
+          <VisualMosaic />
+        </section>
+
+        <section className="visual-reel-section" aria-label="SystemProfitLab visual proof reel">
+          <div className="visual-reel-track">
+            {[...visualReel, ...visualReel].map((item, index) => (
+              <article className="visual-reel-card" key={`${item.title}-${index}`}>
+                <Image src={item.src} alt="" width={112} height={128} />
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section className="border-y border-slate-200 bg-white">
@@ -304,6 +365,31 @@ export default function Home() {
                 </article>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="container-shell py-20" id="highlights">
+          <div className="max-w-3xl">
+            <p className="section-kicker">Selected highlights</p>
+            <h2 className="mt-4 text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
+              The visual story is simple: capture, automate, and operate with less weight.
+            </h2>
+          </div>
+
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            {highlights.map((item) => (
+              <article className="highlight-card" key={item.title}>
+                <Image src={item.image} alt="" width={760} height={520} />
+                <div className="p-6">
+                  <h3 className="text-2xl font-semibold leading-tight text-slate-950">
+                    {item.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-slate-600">
+                    {item.text}
+                  </p>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
