@@ -47,8 +47,8 @@ export default function ConfirmationView({
             <h1 className="mt-6 max-w-[11ch] text-5xl font-semibold leading-[0.92] sm:text-6xl">
               Redirecting you now.
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-              We captured <strong className="text-slate-950">{email}</strong> and are sending you to the best next HighLevel offer for this section in {secondsLeft} second{secondsLeft === 1 ? "" : "s"}.
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+              We captured <strong className="text-white">{email}</strong> and are sending you to the best next HighLevel offer for this section in {secondsLeft} second{secondsLeft === 1 ? "" : "s"}.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
@@ -57,7 +57,7 @@ export default function ConfirmationView({
                 `Intent matched: ${type}`,
                 `Source: ${source}`,
               ].map((item) => (
-                <div className="panel-surface px-4 py-5 text-sm leading-7 text-slate-700" key={item}>
+                <div className="panel-surface px-4 py-5 text-sm leading-7 text-slate-200" key={item}>
                   {item}
                 </div>
               ))}

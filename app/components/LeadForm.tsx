@@ -67,13 +67,13 @@ export default function LeadForm({
 
   return (
     <div className={`panel-surface-strong ${isHero ? "p-4 sm:p-5" : "p-5"}`}>
-      {title ? <p className="mb-2 text-sm font-semibold text-slate-950">{title}</p> : null}
-      {subtitle ? <p className="mb-4 text-sm leading-6 text-slate-600">{subtitle}</p> : null}
+      {title ? <p className="mb-2 text-sm font-semibold text-white">{title}</p> : null}
+      {subtitle ? <p className="mb-4 text-sm leading-6 text-slate-300">{subtitle}</p> : null}
 
       <form className="space-y-4" onSubmit={submitLead}>
         <div className="space-y-2">
           <label
-            className={`${minimal ? "sr-only" : "block text-sm font-medium text-slate-700"}`}
+            className={`${minimal ? "sr-only" : "block text-sm font-medium text-slate-200"}`}
             htmlFor={`email-${variant}`}
           >
             Email address
@@ -81,7 +81,7 @@ export default function LeadForm({
           <div className="grid gap-3 sm:grid-cols-[minmax(0,1fr)_auto]">
             <input
               autoComplete="email"
-              className="h-12 w-full rounded-full border border-slate-300 bg-white px-5 text-base text-slate-950 outline-none ring-0 placeholder:text-slate-400 focus:border-teal-500 focus:ring-4 focus:ring-teal-100 sm:h-14"
+              className="h-12 w-full rounded-full border border-white/10 bg-white/[0.08] px-5 text-base text-white outline-none ring-0 placeholder:text-slate-500 focus:border-cyan-300/50 focus:ring-4 focus:ring-cyan-400/10 sm:h-14"
               disabled={status === "loading" || status === "success"}
               id={`email-${variant}`}
               name="email"
@@ -111,7 +111,7 @@ export default function LeadForm({
             {message}
           </p>
         ) : (
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-slate-400">
             {helperText ||
               "Get the starter guide, practical growth notes, and the clearest next step for your business."}
           </p>

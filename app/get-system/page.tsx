@@ -16,7 +16,7 @@ export default function GetSystemPage() {
               <h1 className="mt-6 max-w-[11ch] text-5xl font-semibold leading-[0.92] sm:text-6xl">
                 Get matched to the system that makes your business easier to run.
               </h1>
-              <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
+              <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
                 Unlock the clearest HighLevel starting path for your stage,
                 whether you need AI follow-up, guided setup, agency operations,
                 or a simpler way to turn attention into booked opportunities.
@@ -28,7 +28,7 @@ export default function GetSystemPage() {
                   "Automate follow-up",
                   "Run with ease",
                 ].map((item) => (
-                  <div className="panel-surface px-4 py-5 text-sm leading-7 text-slate-700" key={item}>
+                  <div className="panel-surface px-4 py-5 text-sm leading-7 text-slate-200" key={item}>
                     {item}
                   </div>
                 ))}

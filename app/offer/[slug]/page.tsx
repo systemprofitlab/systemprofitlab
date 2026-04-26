@@ -54,7 +54,7 @@ export default async function OfferPage({ params }: OfferPageProps) {
               <h1 className="mt-6 max-w-[12ch] text-5xl font-semibold leading-[0.92] sm:text-6xl">
                 {offer.title}
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
                 {offer.summary}
               </p>
 
@@ -89,13 +89,13 @@ export default async function OfferPage({ params }: OfferPageProps) {
               <ProductMockup compact />
               <div className="panel-surface-strong p-6">
                 <FeatureIcon name={getOfferIcon(offer.theme)} />
-                <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">
+                <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">
                   Best for
                 </p>
                 <h3 className="mt-4 text-2xl font-semibold">{offer.promise}</h3>
                 <ul className="mt-6 space-y-4">
                   {offer.idealFor.map((item) => (
-                    <li className="flex gap-3 text-sm leading-7 text-slate-700" key={item}>
+                    <li className="flex gap-3 text-sm leading-7 text-slate-300" key={item}>
                       <FeatureIcon className="mt-1 h-10 w-10 rounded-xl" name="checklist" />
                       <span>{item}</span>
                     </li>
@@ -110,22 +110,22 @@ export default async function OfferPage({ params }: OfferPageProps) {
       <section className="container-shell mt-10">
         <div className="grid gap-5 lg:grid-cols-3">
           <article className="section-shell px-6 py-7 sm:px-7">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">
               Why this path works
             </p>
             <h3 className="mt-4 text-2xl font-semibold">{offer.decisionTitle}</h3>
-            <p className="mt-4 text-sm leading-7 text-slate-600">
+            <p className="mt-4 text-sm leading-7 text-slate-300">
               {offer.decisionSummary}
             </p>
           </article>
 
           <article className="section-shell px-6 py-7 sm:px-7">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">
               What you get
             </p>
             <ul className="mt-5 space-y-4">
               {offer.included.map((item) => (
-                <li className="flex gap-3 text-sm leading-7 text-slate-700" key={item}>
+                <li className="flex gap-3 text-sm leading-7 text-slate-300" key={item}>
                   <FeatureIcon className="mt-1 h-10 w-10 rounded-xl" name="spark" />
                   <span>{item}</span>
                 </li>
@@ -134,12 +134,12 @@ export default async function OfferPage({ params }: OfferPageProps) {
           </article>
 
           <article className="section-shell px-6 py-7 sm:px-7">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">
               Outcome
             </p>
             <ul className="mt-5 space-y-4">
               {offer.outcomes.map((item) => (
-                <li className="flex gap-3 text-sm leading-7 text-slate-700" key={item}>
+                <li className="flex gap-3 text-sm leading-7 text-slate-300" key={item}>
                   <FeatureIcon className="mt-1 h-10 w-10 rounded-xl" name="checklist" />
                   <span>{item}</span>
                 </li>
@@ -165,13 +165,13 @@ export default async function OfferPage({ params }: OfferPageProps) {
         <div className="mt-8 grid gap-5 md:grid-cols-3">
           {relatedPaths.map((path) => (
             <article className="panel-surface flex min-h-[240px] flex-col p-6" key={path.slug}>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">
                 {path.audience}
               </p>
               <h3 className="mt-4 text-2xl font-semibold">{path.title}</h3>
-              <p className="mt-4 text-sm leading-7 text-slate-600">{path.summary}</p>
+              <p className="mt-4 text-sm leading-7 text-slate-300">{path.summary}</p>
               <Link
-                className="mt-auto pt-8 text-sm font-semibold text-slate-950 hover:text-teal-700"
+                className="mt-auto pt-8 text-sm font-semibold text-cyan-200 hover:text-white"
                 href={path.routePath}
               >
                 Open use case

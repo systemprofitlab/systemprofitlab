@@ -48,7 +48,7 @@ export default function AudienceLandingPage({ path }: AudienceLandingPageProps) 
               <h1 className="mt-6 max-w-[12ch] text-5xl font-semibold leading-[0.92] sm:text-6xl">
                 {path.title}
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
                 {path.summary}
               </p>
 
@@ -92,11 +92,11 @@ export default function AudienceLandingPage({ path }: AudienceLandingPageProps) 
               <ProductMockup compact />
               <div className="panel-surface-strong p-6">
                 <FeatureIcon name={getAudienceIcon(path.audience)} />
-                <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">
+                <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">
                   Recommended start
                 </p>
                 <h3 className="mt-4 text-2xl font-semibold">{primaryOffer.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-slate-600">
+                <p className="mt-4 text-sm leading-7 text-slate-300">
                   {primaryOffer.promise}
                 </p>
               </div>
@@ -108,24 +108,24 @@ export default function AudienceLandingPage({ path }: AudienceLandingPageProps) 
       <section className="container-shell mt-10">
         <div className="grid gap-5 lg:grid-cols-2">
           <article className="section-shell px-6 py-7 sm:px-7">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">
               Why this matters
             </p>
             <h2 className="mt-5 max-w-[12ch] text-3xl font-semibold leading-tight sm:text-4xl">
               {path.problemTitle}
             </h2>
-            <p className="mt-5 text-sm leading-8 text-slate-600">
+            <p className="mt-5 text-sm leading-8 text-slate-300">
               {path.problemSummary}
             </p>
           </article>
 
           <article className="section-shell px-6 py-7 sm:px-7">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">
               What you gain
             </p>
             <ul className="mt-5 space-y-4">
               {path.outcomes.map((outcome) => (
-                <li className="flex gap-3 text-sm leading-7 text-slate-700" key={outcome}>
+                <li className="flex gap-3 text-sm leading-7 text-slate-300" key={outcome}>
                   <FeatureIcon className="mt-1 h-10 w-10 rounded-xl" name="spark" />
                   <span>{outcome}</span>
                 </li>
@@ -138,11 +138,11 @@ export default function AudienceLandingPage({ path }: AudienceLandingPageProps) 
       <section className="container-shell mt-10">
         <div className="grid gap-5 lg:grid-cols-2">
           <article className="panel-surface p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">
               Best first move
             </p>
             <h3 className="mt-4 text-2xl font-semibold">{primaryOffer.title}</h3>
-            <p className="mt-4 text-sm leading-7 text-slate-600">
+            <p className="mt-4 text-sm leading-7 text-slate-300">
               {primaryOffer.summary}
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
@@ -167,12 +167,12 @@ export default function AudienceLandingPage({ path }: AudienceLandingPageProps) 
           </article>
 
           <article className="panel-surface p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">
               What to avoid
             </p>
             <ul className="mt-5 space-y-4">
               {path.mistakes.map((mistake) => (
-                <li className="flex gap-3 text-sm leading-7 text-slate-700" key={mistake}>
+                <li className="flex gap-3 text-sm leading-7 text-slate-300" key={mistake}>
                   <FeatureIcon className="mt-1 h-10 w-10 rounded-xl" name="checklist" />
                   <span>{mistake}</span>
                 </li>
@@ -210,13 +210,13 @@ export default function AudienceLandingPage({ path }: AudienceLandingPageProps) 
         <div className="mt-8 grid gap-5 md:grid-cols-3">
           {[secondaryOffer, ...alternateOffers.slice(0, 2)].map((offer) => (
             <article className="panel-surface flex min-h-[250px] flex-col p-6" key={offer.slug}>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">
                 {offer.category}
               </p>
               <h3 className="mt-4 text-2xl font-semibold">{offer.title}</h3>
-              <p className="mt-4 text-sm leading-7 text-slate-600">{offer.summary}</p>
+              <p className="mt-4 text-sm leading-7 text-slate-300">{offer.summary}</p>
               <Link
-                className="mt-auto pt-8 text-sm font-semibold text-slate-950 hover:text-teal-700"
+                className="mt-auto pt-8 text-sm font-semibold text-cyan-200 hover:text-white"
                 href={`/offer/${offer.slug}`}
               >
                 View offer

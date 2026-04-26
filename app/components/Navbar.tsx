@@ -31,7 +31,7 @@ export default function Navbar() {
           <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-950 text-sm font-bold text-white">
             SP
           </span>
-          <p className="text-[15px] font-semibold tracking-tight text-slate-950">
+          <p className="text-[15px] font-semibold tracking-tight text-white">
             SystemProfitLab
           </p>
         </Link>
@@ -40,7 +40,7 @@ export default function Navbar() {
           <nav aria-label="Primary navigation" className="flex items-center gap-7">
             {links.map((link) => (
               <Link
-                className="text-sm font-semibold text-slate-600 hover:text-slate-950"
+                className="text-sm font-semibold text-slate-300 hover:text-white"
                 href={link.href}
                 key={link.label}
               >

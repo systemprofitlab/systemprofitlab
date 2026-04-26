@@ -162,12 +162,13 @@ export default function Home() {
       <Navbar />
 
       <main>
-        <section className="container-shell grid min-h-[calc(100vh-72px)] gap-12 pb-16 pt-28 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:pt-32">
-          <div className="max-w-2xl">
-            <h1 className="text-5xl font-semibold leading-[0.94] text-slate-950 sm:text-6xl lg:text-7xl">
+        <section className="hero-cinematic">
+          <div className="container-shell hero-grid">
+          <div className="max-w-3xl reveal-up">
+            <h1 className="hero-title">
               We help businesses choose the systems that make growth easier.
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
+            <p className="hero-copy">
               SystemProfitLab identifies proven automation paths for business
               owners, creators, agencies, and operators who want a simpler way
               to capture leads, follow up with AI, and run the business with
@@ -198,7 +199,10 @@ export default function Home() {
             </div>
           </div>
 
-          <VisualMosaic />
+          <div className="reveal-up">
+            <VisualMosaic />
+          </div>
+          </div>
         </section>
 
         <section className="visual-reel-section" aria-label="SystemProfitLab visual proof reel">
@@ -215,14 +219,14 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="border-y border-slate-200 bg-white">
-          <div className="container-shell grid gap-6 py-7 sm:grid-cols-2 lg:grid-cols-4">
+        <section className="border-y border-white/10 bg-white/[0.04]">
+          <div className="container-shell grid gap-6 py-10 sm:grid-cols-2 lg:grid-cols-4">
             {proofMetrics.map((metric) => (
-              <div key={metric.label}>
-                <p className="text-3xl font-semibold tracking-tight text-slate-950">
+              <div className="reveal-up" key={metric.label}>
+                <p className="text-4xl font-semibold tracking-tight text-white">
                   {metric.value}
                 </p>
-                <p className="mt-1 text-sm font-medium text-slate-500">
+                <p className="mt-2 text-sm font-medium text-slate-400">
                   {metric.label}
                 </p>
               </div>
@@ -230,14 +234,14 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="container-shell py-20" id="what-we-do">
+        <section className="container-shell section-premium" id="what-we-do">
           <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
-            <div>
+            <div className="reveal-up">
               <p className="section-kicker">What we do</p>
-              <h2 className="mt-4 max-w-xl text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
+              <h2 className="mt-5 max-w-xl text-5xl font-semibold leading-tight text-white sm:text-6xl">
                 We find efficient systems and make the next move obvious.
               </h2>
-              <p className="mt-5 max-w-lg text-base leading-8 text-slate-600">
+              <p className="mt-6 max-w-lg text-base leading-8 text-slate-300">
                 We are not here to make software sound complicated. We are here
                 to show business owners which system solves the real problem:
                 missed leads, slow follow-up, scattered tools, and wasted time.
@@ -247,10 +251,10 @@ export default function Home() {
             <div className="grid gap-4 md:grid-cols-3">
               {capabilities.map((item) => (
                 <article className="panel-surface p-6" key={item.title}>
-                  <h3 className="text-xl font-semibold text-slate-950">
+                  <h3 className="text-xl font-semibold text-white">
                     {item.title}
                   </h3>
-                  <p className="mt-4 text-sm leading-7 text-slate-600">
+                  <p className="mt-4 text-sm leading-7 text-slate-300">
                     {item.text}
                   </p>
                 </article>
@@ -259,15 +263,15 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-slate-950 py-20 text-white" id="system">
-          <div className="container-shell">
+        <section className="section-dark" id="system">
+          <div className="container-shell relative z-10">
             <div className="grid gap-12 lg:grid-cols-[0.86fr_1.14fr] lg:items-center">
               <div>
                 <p className="section-kicker section-kicker-dark">The system</p>
-                <h2 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl">
+                <h2 className="mt-5 text-5xl font-semibold leading-tight sm:text-6xl">
                   HighLevel is the growth operating system we route people toward.
                 </h2>
-                <p className="mt-5 max-w-xl text-base leading-8 text-slate-300">
+                <p className="mt-6 max-w-xl text-base leading-8 text-slate-300">
                   The reason is simple: the strongest businesses do not run on
                   disconnected forms, inboxes, calendars, and spreadsheets. They
                   run on connected systems that capture, respond, book, track,
@@ -275,7 +279,7 @@ export default function Home() {
                 </p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <a
-                    className="premium-button bg-white text-slate-950 hover:bg-slate-100"
+                    className="premium-button"
                     href={buildAffiliateRedirectHref("trial", "system-section", "system")}
                   >
                     Start Free Trial
@@ -303,13 +307,13 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="container-shell py-20" id="paths">
-          <div className="max-w-3xl">
+        <section className="container-shell section-premium" id="paths">
+          <div className="max-w-3xl reveal-up">
             <p className="section-kicker">Selected paths</p>
-            <h2 className="mt-4 text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
+            <h2 className="mt-5 text-5xl font-semibold leading-tight text-white sm:text-6xl">
               Clear offers for the way you actually grow.
             </h2>
-            <p className="mt-5 text-base leading-8 text-slate-600">
+            <p className="mt-6 text-base leading-8 text-slate-300">
               The offer should match the situation. Some people need AI
               response first. Some need guided setup. Some need agency-grade
               operations. The route changes based on the need.
@@ -319,16 +323,16 @@ export default function Home() {
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             {selectedPaths.map((path) => (
               <article className="panel-surface flex min-h-[300px] flex-col p-6 sm:p-7" key={path.title}>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">
-                  {path.eyebrow}
-                </p>
-                <h3 className="mt-4 text-3xl font-semibold leading-tight text-slate-950">
-                  {path.title}
-                </h3>
-                <p className="mt-4 flex-1 text-sm leading-7 text-slate-600">
-                  {path.text}
-                </p>
-                <a className="mt-8 text-sm font-semibold text-slate-950 hover:text-teal-700" href={path.href}>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">
+                    {path.eyebrow}
+                  </p>
+                  <h3 className="mt-4 text-3xl font-semibold leading-tight text-white">
+                    {path.title}
+                  </h3>
+                  <p className="mt-4 flex-1 text-sm leading-7 text-slate-300">
+                    {path.text}
+                  </p>
+                <a className="mt-8 text-sm font-semibold text-cyan-200 hover:text-white" href={path.href}>
                   {path.cta}
                 </a>
               </article>
@@ -336,12 +340,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-white py-20" id="process">
+        <section className="section-light" id="process">
           <div className="container-shell">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
               <div>
                 <p className="section-kicker">Our process</p>
-                <h2 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
+                <h2 className="mt-5 max-w-2xl text-5xl font-semibold leading-tight text-white sm:text-6xl">
                   Simple enough to understand. Strong enough to act on.
                 </h2>
               </div>
@@ -353,13 +357,13 @@ export default function Home() {
             <div className="mt-10 grid gap-5 lg:grid-cols-3">
               {process.map((item) => (
                 <article className="panel-surface p-6" key={item.step}>
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
                     {item.step}
                   </p>
-                  <h3 className="mt-4 text-2xl font-semibold text-slate-950">
+                  <h3 className="mt-4 text-2xl font-semibold text-white">
                     {item.title}
                   </h3>
-                  <p className="mt-4 text-sm leading-7 text-slate-600">
+                  <p className="mt-4 text-sm leading-7 text-slate-300">
                     {item.text}
                   </p>
                 </article>
@@ -368,10 +372,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="container-shell py-20" id="highlights">
+        <section className="container-shell section-premium" id="highlights">
           <div className="max-w-3xl">
             <p className="section-kicker">Selected highlights</p>
-            <h2 className="mt-4 text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
+            <h2 className="mt-5 text-5xl font-semibold leading-tight text-white sm:text-6xl">
               The visual story is simple: capture, automate, and operate with less weight.
             </h2>
           </div>
@@ -381,10 +385,10 @@ export default function Home() {
               <article className="highlight-card" key={item.title}>
                 <Image src={item.image} alt="" width={760} height={520} />
                 <div className="p-6">
-                  <h3 className="text-2xl font-semibold leading-tight text-slate-950">
+                  <h3 className="text-2xl font-semibold leading-tight text-white">
                     {item.title}
                   </h3>
-                  <p className="mt-4 text-sm leading-7 text-slate-600">
+                  <p className="mt-4 text-sm leading-7 text-slate-300">
                     {item.text}
                   </p>
                 </div>
@@ -393,14 +397,14 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="container-shell py-20" id="industries">
+        <section className="container-shell section-premium" id="industries">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <div>
               <p className="section-kicker">Who it is for</p>
-              <h2 className="mt-4 text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
+              <h2 className="mt-5 text-5xl font-semibold leading-tight text-white sm:text-6xl">
                 Built for people who need the business to work smoother.
               </h2>
-              <p className="mt-5 text-base leading-8 text-slate-600">
+              <p className="mt-6 text-base leading-8 text-slate-300">
                 The common thread is not the industry. It is the need for
                 better systems: faster response, clearer pipeline, stronger
                 follow-up, and less manual chaos.
@@ -409,7 +413,7 @@ export default function Home() {
 
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
               {industries.map((industry) => (
-                <div className="panel-surface px-4 py-5 text-sm font-semibold text-slate-700" key={industry}>
+                <div className="panel-surface px-4 py-5 text-sm font-semibold text-slate-200" key={industry}>
                   {industry}
                 </div>
               ))}
@@ -417,11 +421,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-slate-950 py-20 text-white" id="proof">
-          <div className="container-shell grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+        <section className="section-dark" id="proof">
+          <div className="container-shell relative z-10 grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
             <div>
               <p className="section-kicker section-kicker-dark">Credibility</p>
-              <h2 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl">
+              <h2 className="mt-5 text-5xl font-semibold leading-tight sm:text-6xl">
                 We recommend systems that can stand up to scrutiny.
               </h2>
               <p className="mt-5 max-w-xl text-base leading-8 text-slate-300">
@@ -442,11 +446,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="container-shell py-20" id="offers">
+        <section className="container-shell section-premium" id="offers">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <p className="section-kicker">Recommended systems</p>
-              <h2 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
+              <h2 className="mt-5 max-w-2xl text-5xl font-semibold leading-tight text-white sm:text-6xl">
                 Start with the HighLevel path that matches the job.
               </h2>
             </div>
@@ -458,13 +462,13 @@ export default function Home() {
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
             {featuredOffers.map((offer) => (
               <article className="panel-surface flex h-full flex-col p-6" key={offer.slug}>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">
                   {offer.category}
                 </p>
-                <h3 className="mt-4 text-2xl font-semibold text-slate-950">
+                <h3 className="mt-4 text-2xl font-semibold text-white">
                   {offer.title}
                 </h3>
-                <p className="mt-4 flex-1 text-sm leading-7 text-slate-600">
+                <p className="mt-4 flex-1 text-sm leading-7 text-slate-300">
                   {offer.summary}
                 </p>
                 <div className="mt-6 flex flex-wrap gap-2">
@@ -474,7 +478,7 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
-                <Link className="mt-8 text-sm font-semibold text-slate-950 hover:text-teal-700" href={`/offer/${offer.slug}`}>
+                <Link className="mt-8 text-sm font-semibold text-cyan-200 hover:text-white" href={`/offer/${offer.slug}`}>
                   Review this path
                 </Link>
               </article>
@@ -482,15 +486,15 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-white py-20" id="story">
+        <section className="section-light" id="story">
           <div className="container-shell grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-center">
             <div>
               <p className="section-kicker">Why we exist</p>
-              <h2 className="mt-4 text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
+              <h2 className="mt-5 text-5xl font-semibold leading-tight text-white sm:text-6xl">
                 Better tools should make business feel lighter, not harder.
               </h2>
             </div>
-            <div className="space-y-5 text-base leading-8 text-slate-600">
+            <div className="space-y-5 text-base leading-8 text-slate-300">
               <p>
                 Business owners are constantly told to buy another tool, join
                 another platform, or build another funnel. The problem is that
@@ -507,14 +511,14 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="container-shell py-20" id="contact">
+        <section className="container-shell section-premium" id="contact">
           <div className="cta-band grid gap-8 p-8 sm:p-10 lg:grid-cols-[1fr_0.92fr] lg:items-center">
             <div>
               <p className="section-kicker">Next level</p>
-              <h2 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
+              <h2 className="mt-5 max-w-2xl text-5xl font-semibold leading-tight text-white sm:text-6xl">
                 Ready to make the business work with more ease?
               </h2>
-              <p className="mt-5 max-w-xl text-base leading-8 text-slate-600">
+              <p className="mt-6 max-w-xl text-base leading-8 text-slate-300">
                 Start with the recommended system, or leave your email and get
                 routed to the clearest growth path for your stage.
               </p>
@@ -545,13 +549,13 @@ export default function Home() {
           </div>
         </section>
 
-        <footer className="border-t border-slate-200 bg-white">
+        <footer className="border-t border-white/10 bg-slate-950/70">
           <div className="container-shell flex flex-col gap-6 py-8 md:flex-row md:items-center md:justify-between">
             <div>
-              <p className="text-base font-semibold text-slate-950">
+              <p className="text-base font-semibold text-white">
                 SystemProfitLab
               </p>
-              <p className="mt-1 text-sm text-slate-500">
+              <p className="mt-1 text-sm text-slate-400">
                 Clear growth paths for businesses that want better systems.
               </p>
             </div>
