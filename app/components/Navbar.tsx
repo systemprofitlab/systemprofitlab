@@ -31,14 +31,9 @@ export default function Navbar() {
           <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-950 text-sm font-bold text-white">
             SP
           </span>
-          <div>
-            <p className="text-[15px] font-semibold tracking-tight text-slate-950">
-              SystemProfitLab
-            </p>
-            <p className="hidden text-[11px] uppercase tracking-[0.2em] text-slate-500 sm:block">
-              Affiliate routing OS
-            </p>
-          </div>
+          <p className="text-[15px] font-semibold tracking-tight text-slate-950">
+            SystemProfitLab
+          </p>
         </Link>
 
         <div className="hidden items-center gap-8 lg:flex">
