@@ -35,12 +35,12 @@ export default function AffiliateRedirect({
     <main className="site-shell">
       <section className="container-shell flex min-h-screen items-center py-20">
         <div className="mx-auto w-full max-w-3xl rounded-[28px] border border-slate-200 bg-white p-8 text-center shadow-[0_28px_90px_rgba(15,23,42,0.12)] sm:p-10">
-          <p className="section-kicker">Offer router</p>
+          <p className="section-kicker">System router</p>
           <h1 className="mt-5 text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
-            Routing you to the right offer.
+            Routing you to the right system.
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-base leading-8 text-slate-600">
-            We matched this click to <strong>{label}</strong>. The offer page
+            We matched this click to <strong>{label}</strong>. The next page
             will open automatically in {secondsLeft} second
             {secondsLeft === 1 ? "" : "s"}.
           </p>

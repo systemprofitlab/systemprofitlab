@@ -5,90 +5,108 @@ import Navbar from "./components/Navbar";
 import ProductMockup from "./components/ProductMockup";
 import { audiencePaths, offers } from "./lib/funnel";
 
-const metrics = [
-  { value: "2.4x", label: "faster lead response" },
-  { value: "31%", label: "more booked calls" },
-  { value: "14", label: "tools replaced" },
-  { value: "24/7", label: "AI coverage" },
+const proofMetrics = [
+  { value: "4", label: "clear growth paths" },
+  { value: "24/7", label: "automation-first focus" },
+  { value: "1", label: "recommended operating system" },
+  { value: "0", label: "guesswork in the next step" },
 ];
 
-const trustSignals = [
+const capabilities = [
+  {
+    title: "System selection",
+    text: "We study the tools, offers, and workflows that already work, then point business owners to the path that makes the most sense for their stage.",
+  },
+  {
+    title: "AI automation guidance",
+    text: "We focus on systems that reduce manual follow-up, answer leads faster, and keep conversations moving when the team is busy or offline.",
+  },
+  {
+    title: "Growth path routing",
+    text: "Beginner, agency, creator, and local-business visitors should not all receive the same offer. The page routes each person to a better-fit next step.",
+  },
+];
+
+const systems = [
+  "Lead capture",
+  "AI replies",
+  "Booking",
   "CRM",
-  "Funnels",
-  "AI follow-up",
-  "Calendars",
+  "Pipeline",
   "Reviews",
   "Payments",
+  "Automation",
 ];
 
-const problems = [
+const selectedPaths = [
   {
-    title: "Lead intent fades fast",
-    text: "Every minute between inquiry and response lowers the chance of a booked appointment.",
+    eyebrow: "For business owners",
+    title: "Stop letting leads sit unanswered.",
+    text: "Use AI follow-up, calendars, reminders, and pipeline visibility so the business works with more ease.",
+    href: buildAffiliateRedirectHref("ai", "home-business-owners", "selected-paths"),
+    cta: "See AI automation",
   },
   {
-    title: "Tool sprawl hides revenue",
-    text: "Forms, inboxes, calendars, automations, and reviews split across apps make growth harder to operate.",
+    eyebrow: "For new operators",
+    title: "Get the system live without setup overwhelm.",
+    text: "Start with a guided path that helps you understand the platform, launch faster, and build confidence before scaling.",
+    href: buildAffiliateRedirectHref("starter", "home-beginners", "selected-paths"),
+    cta: "Start guided path",
   },
   {
-    title: "The next step is unclear",
-    text: "Beginners, agencies, and automation-driven teams need different offers, not the same generic CTA.",
-  },
-];
-
-const featureBlocks = [
-  {
-    eyebrow: "Capture",
-    title: "Turn every touchpoint into a tracked opportunity",
-    text: "Funnels, forms, chat, calls, and inbound messages flow into one contact record so nothing starts outside the system.",
+    eyebrow: "For agencies",
+    title: "Run client growth from one operating system.",
+    text: "Use a platform built for pipeline, client delivery, recurring systems, and the back-end operations agencies need.",
+    href: buildAffiliateRedirectHref("agency", "home-agencies", "selected-paths"),
+    cta: "See agency path",
   },
   {
-    eyebrow: "Respond",
-    title: "Use automation and AI to reply while intent is still high",
-    text: "Route leads, answer common questions, trigger reminders, and keep the conversation moving without waiting on manual follow-up.",
-  },
-  {
-    eyebrow: "Convert",
-    title: "Move conversations into appointments, pipeline, and revenue",
-    text: "Calendars, deal stages, reputation workflows, and payments keep buyers moving through a clean operating rhythm.",
-  },
-];
-
-const useCases = [
-  {
-    label: "Beginner path",
-    title: "Launch the system with guided setup",
-    text: "Best for owners who need momentum, structure, and a low-friction first win.",
-    href: buildAffiliateRedirectHref("starter", "beginner-path", "use-case-routing"),
-    linkLabel: "Start guided path",
-  },
-  {
-    label: "Agency path",
-    title: "Operate client growth and recurring revenue",
-    text: "Best for agencies that need delivery, pipeline, white-label options, and client visibility.",
-    href: buildAffiliateRedirectHref("agency", "agency-path", "use-case-routing"),
-    linkLabel: "Start agency trial",
-  },
-  {
-    label: "AI / automation path",
-    title: "Fix slow response with AI follow-up",
-    text: "Best for appointment businesses losing leads after hours or between staff handoffs.",
-    href: buildAffiliateRedirectHref("ai", "ai-automation-path", "use-case-routing"),
-    linkLabel: "See AI employee",
-  },
-  {
-    label: "General trial",
-    title: "Explore the full HighLevel platform",
-    text: "Best for visitors who already know they want the platform and need the direct route.",
-    href: buildAffiliateRedirectHref("trial", "general-trial-path", "use-case-routing"),
-    linkLabel: "Start free trial",
+    eyebrow: "For creators",
+    title: "Turn attention into a working follow-up machine.",
+    text: "Capture interest, automate nurture, book calls, and move people from content to offer without scattered tools.",
+    href: "/for-creators",
+    cta: "Explore creator path",
   },
 ];
 
-const offerCards = offers.filter((offer) =>
-  ["bootcamp-trial", "saas-pro-plan", "ai-employee", "annual-plan"].includes(
-    offer.slug,
-  ),
+const process = [
+  {
+    step: "01",
+    title: "Recognize the working system",
+    text: "We look for tools with real operational value: clear workflows, credible adoption, strong use cases, and a path to measurable business leverage.",
+  },
+  {
+    step: "02",
+    title: "Match the system to the buyer",
+    text: "A creator, local business, beginner, and agency each need a different starting point. We make the next step clear.",
+  },
+  {
+    step: "03",
+    title: "Route the visitor to action",
+    text: "Every CTA either captures the email or sends the visitor to the correct HighLevel offer with a simple redirect experience.",
+  },
+];
+
+const standards = [
+  "The system must make daily business operations easier.",
+  "The offer must connect to a clear growth outcome.",
+  "The path must be simple enough for a busy owner to understand.",
+  "The recommendation must be backed by visible platform utility, not hype.",
+];
+
+const industries = [
+  "Local services",
+  "Coaches",
+  "Creators",
+  "Agencies",
+  "Consultants",
+  "Online offers",
+  "Appointment businesses",
+  "Small teams",
+];
+
+const featuredOffers = offers.filter((offer) =>
+  ["ai-employee", "bootcamp-trial", "saas-pro-plan"].includes(offer.slug),
 );
 
 export default function Home() {
@@ -97,45 +115,39 @@ export default function Home() {
       <Navbar />
 
       <main>
-        <section className="container-shell grid min-h-[calc(100vh-72px)] gap-12 pb-16 pt-28 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:pt-32">
+        <section className="container-shell grid min-h-[calc(100vh-72px)] gap-12 pb-16 pt-28 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:pt-32">
           <div className="max-w-2xl">
-            <h1 className="mt-6 text-5xl font-semibold leading-[0.96] text-slate-950 sm:text-6xl lg:text-7xl">
-              The smarter path to HighLevel for every growth intent.
+            <h1 className="text-5xl font-semibold leading-[0.94] text-slate-950 sm:text-6xl lg:text-7xl">
+              We help businesses choose the systems that make growth easier.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-              SystemProfitLab routes each visitor to the right HighLevel offer:
-              guided setup, agency scale, AI automation, or the direct trial.
+              SystemProfitLab identifies proven automation paths for business
+              owners, creators, agencies, and operators who want a simpler way
+              to capture leads, follow up with AI, and run the business with
+              less friction.
             </p>
 
-            <div className="mt-8 max-w-xl">
-              <LeadForm
-                buttonLabel="Get My Best Path"
-                helperText="Enter your email and we will unlock the cleanest starting route."
-                minimal
-                redirectType="trial"
-                source="hero-intent-capture"
-                variant="hero"
-              />
-            </div>
-
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 className="premium-button"
-                href={buildAffiliateRedirectHref("trial", "hero-direct-trial", "hero")}
+                href={buildAffiliateRedirectHref("trial", "home-hero-primary", "hero")}
               >
-                Start Free Trial
+                Start With The System
               </a>
-              <Link className="secondary-button" href="#paths">
-                Compare Paths
+              <Link className="secondary-button" href="#what-we-do">
+                See What We Do
               </Link>
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-2">
-              {trustSignals.map((signal) => (
-                <span className="metric-chip" key={signal}>
-                  {signal}
-                </span>
-              ))}
+            <div className="mt-8 max-w-xl">
+              <LeadForm
+                buttonLabel="Find My Growth Path"
+                helperText="Get the clearest HighLevel starting path for your stage."
+                minimal
+                redirectType="trial"
+                source="home-hero-email"
+                variant="hero"
+              />
             </div>
           </div>
 
@@ -144,41 +156,41 @@ export default function Home() {
 
         <section className="border-y border-slate-200 bg-white">
           <div className="container-shell grid gap-6 py-7 sm:grid-cols-2 lg:grid-cols-4">
-            {metrics.map((item) => (
-              <div key={item.label}>
+            {proofMetrics.map((metric) => (
+              <div key={metric.label}>
                 <p className="text-3xl font-semibold tracking-tight text-slate-950">
-                  {item.value}
+                  {metric.value}
                 </p>
                 <p className="mt-1 text-sm font-medium text-slate-500">
-                  {item.label}
+                  {metric.label}
                 </p>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="container-shell py-20">
-          <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
+        <section className="container-shell py-20" id="what-we-do">
+          <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
             <div>
-              <p className="section-kicker">Revenue leak</p>
+              <p className="section-kicker">What we do</p>
               <h2 className="mt-4 max-w-xl text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
-                The problem is not traffic. It is the gap after interest.
+                We find efficient systems and make the next move obvious.
               </h2>
               <p className="mt-5 max-w-lg text-base leading-8 text-slate-600">
-                A premium funnel does more than send everyone to one signup
-                page. It reads intent, captures demand, and moves people into
-                the offer most likely to convert.
+                We are not here to make software sound complicated. We are here
+                to show business owners which system solves the real problem:
+                missed leads, slow follow-up, scattered tools, and wasted time.
               </p>
             </div>
 
             <div className="grid gap-4 md:grid-cols-3">
-              {problems.map((problem) => (
-                <article className="panel-surface p-6" key={problem.title}>
+              {capabilities.map((item) => (
+                <article className="panel-surface p-6" key={item.title}>
                   <h3 className="text-xl font-semibold text-slate-950">
-                    {problem.title}
+                    {item.title}
                   </h3>
                   <p className="mt-4 text-sm leading-7 text-slate-600">
-                    {problem.text}
+                    {item.text}
                   </p>
                 </article>
               ))}
@@ -186,110 +198,159 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-slate-950 py-20 text-white" id="solution">
+        <section className="bg-slate-950 py-20 text-white" id="system">
           <div className="container-shell">
-            <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div className="grid gap-12 lg:grid-cols-[0.86fr_1.14fr] lg:items-center">
               <div>
-                <p className="section-kicker section-kicker-dark">SystemProfitLab</p>
+                <p className="section-kicker section-kicker-dark">The system</p>
                 <h2 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl">
-                  One conversion layer for the full HighLevel buying journey.
+                  HighLevel is the growth operating system we route people toward.
                 </h2>
                 <p className="mt-5 max-w-xl text-base leading-8 text-slate-300">
-                  Every CTA either captures an email or routes to a tracked
-                  affiliate destination. No dead buttons, no unclear next step,
-                  no generic path for high-intent buyers.
+                  The reason is simple: the strongest businesses do not run on
+                  disconnected forms, inboxes, calendars, and spreadsheets. They
+                  run on connected systems that capture, respond, book, track,
+                  and follow up from one place.
                 </p>
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <a
+                    className="premium-button bg-white text-slate-950 hover:bg-slate-100"
+                    href={buildAffiliateRedirectHref("trial", "system-section", "system")}
+                  >
+                    Start Free Trial
+                  </a>
+                  <a
+                    className="secondary-button border-white/20 bg-white/10 text-white hover:bg-white/15"
+                    href={buildAffiliateRedirectHref("ai", "system-ai-section", "system")}
+                  >
+                    See AI Path
+                  </a>
+                </div>
               </div>
 
-              <div className="grid gap-4">
-                {featureBlocks.map((feature) => (
-                  <article className="dark-panel p-6" key={feature.title}>
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">
-                      {feature.eyebrow}
-                    </p>
-                    <h3 className="mt-3 text-2xl font-semibold">
-                      {feature.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-7 text-slate-300">
-                      {feature.text}
-                    </p>
-                  </article>
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                {systems.map((system) => (
+                  <div
+                    className="rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-5 text-sm font-semibold text-slate-100"
+                    key={system}
+                  >
+                    {system}
+                  </div>
                 ))}
               </div>
             </div>
           </div>
         </section>
 
-        <section className="container-shell py-20" id="features">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <div>
-              <p className="section-kicker">Platform value</p>
-              <h2 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
-                Premium positioning backed by real software outcomes.
-              </h2>
-            </div>
-            <a
-              className="premium-button"
-              href={buildAffiliateRedirectHref("ai", "features-primary", "features")}
-            >
-              See AI Automation
-            </a>
+        <section className="container-shell py-20" id="paths">
+          <div className="max-w-3xl">
+            <p className="section-kicker">Selected paths</p>
+            <h2 className="mt-4 text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
+              Clear offers for the way you actually grow.
+            </h2>
+            <p className="mt-5 text-base leading-8 text-slate-600">
+              The offer should match the situation. Some people need AI
+              response first. Some need guided setup. Some need agency-grade
+              operations. The route changes based on the need.
+            </p>
           </div>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {[
-              "Unified CRM and pipeline",
-              "AI conversations and instant replies",
-              "Funnels, forms, and lead capture",
-              "Calendars, reminders, and booking",
-              "Reputation and review workflows",
-              "Client-ready agency operations",
-            ].map((item) => (
-              <div className="panel-surface p-6" key={item}>
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 text-sm font-semibold text-white">
-                  {item.slice(0, 2)}
-                </div>
-                <h3 className="mt-5 text-xl font-semibold text-slate-950">
-                  {item}
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">
-                  Built to reduce handoffs, improve response speed, and keep
-                  buyer intent moving toward the next conversion.
+          <div className="mt-10 grid gap-5 md:grid-cols-2">
+            {selectedPaths.map((path) => (
+              <article className="panel-surface flex min-h-[300px] flex-col p-6 sm:p-7" key={path.title}>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">
+                  {path.eyebrow}
                 </p>
-              </div>
+                <h3 className="mt-4 text-3xl font-semibold leading-tight text-slate-950">
+                  {path.title}
+                </h3>
+                <p className="mt-4 flex-1 text-sm leading-7 text-slate-600">
+                  {path.text}
+                </p>
+                <a className="mt-8 text-sm font-semibold text-slate-950 hover:text-teal-700" href={path.href}>
+                  {path.cta}
+                </a>
+              </article>
             ))}
           </div>
         </section>
 
-        <section className="bg-white py-20" id="paths">
+        <section className="bg-white py-20" id="process">
           <div className="container-shell">
-            <div className="max-w-3xl">
-              <p className="section-kicker">Intent routing</p>
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+              <div>
+                <p className="section-kicker">Our process</p>
+                <h2 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
+                  Simple enough to understand. Strong enough to act on.
+                </h2>
+              </div>
+              <Link className="secondary-button" href="/offers">
+                Compare Offers
+              </Link>
+            </div>
+
+            <div className="mt-10 grid gap-5 lg:grid-cols-3">
+              {process.map((item) => (
+                <article className="panel-surface p-6" key={item.step}>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                    {item.step}
+                  </p>
+                  <h3 className="mt-4 text-2xl font-semibold text-slate-950">
+                    {item.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-slate-600">
+                    {item.text}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="container-shell py-20" id="industries">
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+            <div>
+              <p className="section-kicker">Who it is for</p>
               <h2 className="mt-4 text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
-                Four paths. One clear next step for each buyer.
+                Built for people who need the business to work smoother.
               </h2>
               <p className="mt-5 text-base leading-8 text-slate-600">
-                The funnel changes the destination based on what the visitor is
-                trying to solve, which makes every click more relevant.
+                The common thread is not the industry. It is the need for
+                better systems: faster response, clearer pipeline, stronger
+                follow-up, and less manual chaos.
               </p>
             </div>
 
-            <div className="mt-10 grid gap-5 lg:grid-cols-4">
-              {useCases.map((path) => (
-                <article className="panel-surface flex min-h-[310px] flex-col p-6" key={path.label}>
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">
-                    {path.label}
-                  </p>
-                  <h3 className="mt-4 text-2xl font-semibold text-slate-950">
-                    {path.title}
-                  </h3>
-                  <p className="mt-4 flex-1 text-sm leading-7 text-slate-600">
-                    {path.text}
-                  </p>
-                  <a className="mt-8 text-sm font-semibold text-slate-950 hover:text-teal-700" href={path.href}>
-                    {path.linkLabel}
-                  </a>
-                </article>
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {industries.map((industry) => (
+                <div className="panel-surface px-4 py-5 text-sm font-semibold text-slate-700" key={industry}>
+                  {industry}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-slate-950 py-20 text-white" id="proof">
+          <div className="container-shell grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+            <div>
+              <p className="section-kicker section-kicker-dark">Credibility</p>
+              <h2 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl">
+                We recommend systems that can stand up to scrutiny.
+              </h2>
+              <p className="mt-5 max-w-xl text-base leading-8 text-slate-300">
+                SystemProfitLab is built around a simple standard: do not send
+                people into confusing tools just because there is an affiliate
+                link. The system has to be useful, understandable, and aligned
+                with a real business outcome.
+              </p>
+            </div>
+
+            <div className="grid gap-4">
+              {standards.map((standard) => (
+                <div className="dark-panel p-6 text-base font-medium leading-7 text-slate-100" key={standard}>
+                  {standard}
+                </div>
               ))}
             </div>
           </div>
@@ -298,9 +359,9 @@ export default function Home() {
         <section className="container-shell py-20" id="offers">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="section-kicker">Offer mapping</p>
+              <p className="section-kicker">Recommended systems</p>
               <h2 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
-                Affiliate offers matched to urgency, maturity, and business model.
+                Start with the HighLevel path that matches the job.
               </h2>
             </div>
             <Link className="secondary-button" href="/offers">
@@ -308,79 +369,93 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="mt-10 grid gap-5 lg:grid-cols-4">
-            {offerCards.map((offer) => (
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            {featuredOffers.map((offer) => (
               <article className="panel-surface flex h-full flex-col p-6" key={offer.slug}>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-700">
                   {offer.category}
                 </p>
                 <h3 className="mt-4 text-2xl font-semibold text-slate-950">
-                  {offer.shortTitle}
+                  {offer.title}
                 </h3>
                 <p className="mt-4 flex-1 text-sm leading-7 text-slate-600">
                   {offer.summary}
                 </p>
                 <div className="mt-6 flex flex-wrap gap-2">
-                  {offer.proof.slice(0, 2).map((proof) => (
+                  {offer.proof.map((proof) => (
                     <span className="metric-chip" key={proof}>
                       {proof}
                     </span>
                   ))}
                 </div>
                 <Link className="mt-8 text-sm font-semibold text-slate-950 hover:text-teal-700" href={`/offer/${offer.slug}`}>
-                  Review offer
+                  Review this path
                 </Link>
               </article>
             ))}
           </div>
         </section>
 
-        <section className="bg-slate-950 py-20 text-white">
-          <div className="container-shell grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
+        <section className="bg-white py-20" id="story">
+          <div className="container-shell grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-center">
             <div>
-              <p className="section-kicker section-kicker-dark">Email capture</p>
-              <h2 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl">
-                Capture the lead before sending them deeper into the funnel.
+              <p className="section-kicker">Why we exist</p>
+              <h2 className="mt-4 text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
+                Better tools should make business feel lighter, not harder.
               </h2>
-              <p className="mt-5 max-w-xl text-base leading-8 text-slate-300">
-                The email capture path gives warm visitors a helpful next step
-                while preserving the ability to route them into the correct
-                affiliate offer after submission.
+            </div>
+            <div className="space-y-5 text-base leading-8 text-slate-600">
+              <p>
+                Business owners are constantly told to buy another tool, join
+                another platform, or build another funnel. The problem is that
+                most of those recommendations are not tied to how the business
+                actually operates.
+              </p>
+              <p>
+                SystemProfitLab exists to recognize the systems that make the
+                work easier: tools that help capture demand, automate follow-up,
+                organize pipeline, and create a calmer path from attention to
+                revenue.
               </p>
             </div>
-            <LeadForm
-              buttonLabel="Unlock My Funnel Path"
-              redirectType="starter"
-              source="bottom-email-capture"
-              subtitle="Get the route recommendation and continue to the best offer for your current stage."
-              title="Find your starting path"
-              variant="inline"
-            />
           </div>
         </section>
 
-        <section className="container-shell py-20">
-          <div className="cta-band grid gap-8 p-8 sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center">
+        <section className="container-shell py-20" id="contact">
+          <div className="cta-band grid gap-8 p-8 sm:p-10 lg:grid-cols-[1fr_0.92fr] lg:items-center">
             <div>
-              <p className="section-kicker">Ready path</p>
+              <p className="section-kicker">Next level</p>
               <h2 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
-                Start with the offer most likely to turn intent into revenue.
+                Ready to make the business work with more ease?
               </h2>
+              <p className="mt-5 max-w-xl text-base leading-8 text-slate-600">
+                Start with the recommended system, or leave your email and get
+                routed to the clearest growth path for your stage.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a
+                  className="premium-button"
+                  href={buildAffiliateRedirectHref("trial", "home-final-primary", "final-cta")}
+                >
+                  Start Free Trial
+                </a>
+                <a
+                  className="secondary-button"
+                  href={buildAffiliateRedirectHref("ai", "home-final-ai", "final-cta")}
+                >
+                  Explore AI Automation
+                </a>
+              </div>
             </div>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <a
-                className="premium-button"
-                href={buildAffiliateRedirectHref("trial", "final-primary", "final-cta")}
-              >
-                Start Free Trial
-              </a>
-              <a
-                className="secondary-button"
-                href={buildAffiliateRedirectHref("agency", "final-agency", "final-cta")}
-              >
-                Agency Trial
-              </a>
-            </div>
+
+            <LeadForm
+              buttonLabel="Send Me The Best Path"
+              redirectType="starter"
+              source="home-final-email"
+              subtitle="Tell us where to send the next step. The route stays simple."
+              title="Find your path"
+              variant="inline"
+            />
           </div>
         </section>
 
@@ -391,7 +466,7 @@ export default function Home() {
                 SystemProfitLab
               </p>
               <p className="mt-1 text-sm text-slate-500">
-                Intent-based SaaS affiliate routing for HighLevel buyers.
+                Clear growth paths for businesses that want better systems.
               </p>
             </div>
             <div className="flex flex-wrap gap-5">

@@ -4,20 +4,20 @@ type ProductMockupProps = {
 
 const stages = [
   { label: "New leads", value: "184", tone: "bg-teal-500" },
-  { label: "Qualified", value: "92", tone: "bg-sky-500" },
+  { label: "AI replies", value: "92", tone: "bg-sky-500" },
   { label: "Booked", value: "43", tone: "bg-indigo-500" },
 ];
 
 const rows = [
-  { name: "Beginner owner", intent: "Guided setup", path: "Bootcamp" },
-  { name: "Agency operator", intent: "Scale delivery", path: "SaaS Pro" },
-  { name: "Local service", intent: "Missed calls", path: "AI Employee" },
+  { name: "Business owner", intent: "Needs automation", path: "AI Employee" },
+  { name: "New operator", intent: "Needs clarity", path: "Bootcamp" },
+  { name: "Agency team", intent: "Needs delivery", path: "SaaS Pro" },
 ];
 
 const activity = [
-  "AI replied to Morgan in 18 sec",
-  "Agency visitor routed to Pro Trial",
-  "Lead captured from final CTA",
+  "New lead routed to AI path",
+  "Business owner matched to trial",
+  "Email captured from final CTA",
 ];
 
 export default function ProductMockup({ compact = false }: ProductMockupProps) {
@@ -34,7 +34,7 @@ export default function ProductMockup({ compact = false }: ProductMockupProps) {
             <span className="h-3 w-3 rounded-full bg-emerald-400" />
           </div>
           <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
-            Routing live
+            System live
           </span>
         </div>
 
@@ -44,7 +44,7 @@ export default function ProductMockup({ compact = false }: ProductMockupProps) {
               Workspace
             </p>
             <div className="mt-5 space-y-2">
-              {["Overview", "Leads", "Automations", "Offers", "Reporting"].map(
+                    {["Overview", "Leads", "AI follow-up", "Systems", "Reporting"].map(
                 (item, index) => (
                   <div
                     className={`rounded-xl px-3 py-2 text-sm ${
@@ -78,14 +78,14 @@ export default function ProductMockup({ compact = false }: ProductMockupProps) {
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                    Intent router
+                    Growth router
                   </p>
                   <h3 className="mt-2 text-xl font-semibold text-slate-950">
-                    Offer paths by visitor signal
+                    System paths by visitor need
                   </h3>
                 </div>
                 <span className="rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700">
-                  4 active paths
+                  4 growth paths
                 </span>
               </div>
 

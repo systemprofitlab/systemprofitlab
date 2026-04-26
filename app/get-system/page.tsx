@@ -12,19 +12,21 @@ export default function GetSystemPage() {
         <div className="hero-shell px-6 py-8 sm:px-8 sm:py-10">
           <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center">
             <div>
-              <span className="section-kicker">Lead system</span>
+              <span className="section-kicker">Growth path</span>
               <h1 className="mt-6 max-w-[11ch] text-5xl font-semibold leading-[0.92] sm:text-6xl">
-                Get the system behind faster follow-up and more booked appointments.
+                Get matched to the system that makes your business easier to run.
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-                Unlock the starter guide, implementation notes, and the clearest HighLevel path for your business.
+                Unlock the clearest HighLevel starting path for your stage,
+                whether you need AI follow-up, guided setup, agency operations,
+                or a simpler way to turn attention into booked opportunities.
               </p>
 
               <div className="mt-8 grid gap-4 sm:grid-cols-3">
                 {[
-                  "Capture more leads",
-                  "Respond faster",
-                  "Book more appointments",
+                  "Capture demand",
+                  "Automate follow-up",
+                  "Run with ease",
                 ].map((item) => (
                   <div className="panel-surface px-4 py-5 text-sm leading-7 text-slate-700" key={item}>
                     {item}
@@ -34,11 +36,11 @@ export default function GetSystemPage() {
             </div>
 
             <LeadForm
-              buttonLabel="Unlock the Lead System"
+              buttonLabel="Find My System"
               redirectType="trial"
               source="get-system"
-              subtitle="Get the guide and the strongest next move for your business."
-              title="Unlock the Lead System"
+              subtitle="Get the strongest next move for your business stage."
+              title="Find your growth path"
               variant="hero"
             />
           </div>
@@ -50,7 +52,7 @@ export default function GetSystemPage() {
               rel="noreferrer"
               target="_blank"
             >
-              Start Free Trial
+              Start With HighLevel
             </a>
             <Link className="footer-link self-center" href="/">
               Back to homepage

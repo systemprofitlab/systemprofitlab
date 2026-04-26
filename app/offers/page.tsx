@@ -11,13 +11,14 @@ export default function OffersPage() {
       <section className="container-shell pt-28 sm:pt-32">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
-            <p className="section-kicker">Offer comparison</p>
+            <p className="section-kicker">Recommended systems</p>
             <h1 className="mt-5 max-w-3xl text-5xl font-semibold leading-[0.96] text-slate-950 sm:text-6xl">
-              Match each visitor to the HighLevel offer most likely to convert.
+              Choose the HighLevel path that matches the way you grow.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-              Compare guided setup, agency scale, AI response, sprint momentum,
-              creator launches, and direct trial routes from one conversion hub.
+              Compare the systems we route visitors toward: AI response,
+              guided setup, agency operations, sprint momentum, creator
+              launches, and direct trial access.
             </p>
           </div>
           <ProductMockup compact />
