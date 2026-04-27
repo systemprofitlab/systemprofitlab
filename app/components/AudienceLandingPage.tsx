@@ -4,8 +4,8 @@ import {
   buildAffiliateRedirectHref,
   getAffiliateTypeForOfferSlug,
 } from "../lib/affiliate";
+import DashboardShowcase from "./DashboardShowcase";
 import FeatureIcon from "./FeatureIcon";
-import ProductMockup from "./ProductMockup";
 import type { AudiencePath } from "../lib/funnel";
 import { getOffer, offers } from "../lib/funnel";
 import Navbar from "./Navbar";
@@ -89,7 +89,7 @@ export default function AudienceLandingPage({ path }: AudienceLandingPageProps) 
             </div>
 
             <div className="space-y-5">
-              <ProductMockup compact />
+              <DashboardShowcase variant="crm" />
               <div className="panel-surface-strong p-6">
                 <FeatureIcon name={getAudienceIcon(path.audience)} />
                 <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">

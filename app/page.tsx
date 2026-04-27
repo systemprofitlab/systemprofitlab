@@ -1,9 +1,8 @@
 import Link from "next/link";
-import Image from "next/image";
 import { buildAffiliateRedirectHref } from "./lib/affiliate";
+import DashboardShowcase from "./components/DashboardShowcase";
 import LeadForm from "./components/LeadForm";
 import Navbar from "./components/Navbar";
-import VisualMosaic from "./components/VisualMosaic";
 import { audiencePaths, offers } from "./lib/funnel";
 
 const proofMetrics = [
@@ -37,34 +36,6 @@ const systems = [
   "Reviews",
   "Payments",
   "Automation",
-];
-
-const visualReel = [
-  {
-    src: "/generated/hero-operator-desktop.webp",
-    title: "Lead flow",
-    text: "Capture demand and move it into one system.",
-  },
-  {
-    src: "/hero-business-owner.jpg",
-    title: "Owner clarity",
-    text: "Know which path fits before adding another tool.",
-  },
-  {
-    src: "/generated/section-operator-desktop.webp",
-    title: "AI operations",
-    text: "Make follow-up faster and easier to manage.",
-  },
-  {
-    src: "/generated/hero-operator-mobile.webp",
-    title: "Mobile-ready",
-    text: "Keep the system moving from anywhere.",
-  },
-  {
-    src: "/generated/section-operator-mobile.webp",
-    title: "Simple handoff",
-    text: "Route the next action without confusion.",
-  },
 ];
 
 const selectedPaths = [
@@ -138,21 +109,21 @@ const featuredOffers = offers.filter((offer) =>
   ["ai-employee", "bootcamp-trial", "saas-pro-plan"].includes(offer.slug),
 );
 
-const highlights = [
+const dashboardHighlights = [
   {
-    image: "/generated/hero-operator-desktop.webp",
-    title: "A business owner needs fewer moving parts",
-    text: "The right system connects forms, conversations, calendars, pipeline, and AI follow-up so the business is easier to operate.",
+    title: "CRM clarity",
+    text: "Contacts, lead source, pipeline value, and response status stay visible in one operating layer.",
+    variant: "crm" as const,
   },
   {
-    image: "/hero-business-owner.jpg",
-    title: "A creator needs attention to become a real path",
-    text: "Traffic only matters when it becomes captured leads, nurture, booking, and a clear next offer.",
+    title: "Automation flow",
+    text: "Every new lead can trigger AI qualification, booking links, reminders, and internal follow-up.",
+    variant: "automation" as const,
   },
   {
-    image: "/generated/section-operator-desktop.webp",
-    title: "An agency needs delivery that can scale",
-    text: "Client growth needs one operating layer for pipeline, communication, automation, and reporting.",
+    title: "Analytics view",
+    text: "Performance panels make response time, booked calls, and opportunity movement easier to understand.",
+    variant: "analytics" as const,
   },
 ];
 
@@ -200,23 +171,15 @@ export default function Home() {
           </div>
 
           <div className="reveal-up">
-            <VisualMosaic />
+            <DashboardShowcase />
           </div>
           </div>
         </section>
 
-        <section className="visual-reel-section" aria-label="SystemProfitLab visual proof reel">
-          <div className="visual-reel-track">
-            {[...visualReel, ...visualReel].map((item, index) => (
-              <article className="visual-reel-card" key={`${item.title}-${index}`}>
-                <Image src={item.src} alt="" width={112} height={128} />
-                <div>
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+        <section className="dashboard-strip" aria-label="SystemProfitLab product system strip">
+          {["CRM", "Conversations", "Pipeline", "AI Follow-up", "Automation", "Reporting", "Booking", "Reviews"].map((item) => (
+            <span key={item}>{item}</span>
+          ))}
         </section>
 
         <section className="border-y border-white/10 bg-white/[0.04]">
@@ -374,16 +337,16 @@ export default function Home() {
 
         <section className="container-shell section-premium" id="highlights">
           <div className="max-w-3xl">
-            <p className="section-kicker">Selected highlights</p>
+            <p className="section-kicker">Product views</p>
             <h2 className="mt-5 text-5xl font-semibold leading-tight text-white sm:text-6xl">
-              The visual story is simple: capture, automate, and operate with less weight.
+              A consistent system for CRM, automation, and analytics.
             </h2>
           </div>
 
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {highlights.map((item) => (
+            {dashboardHighlights.map((item) => (
               <article className="highlight-card" key={item.title}>
-                <Image src={item.image} alt="" width={760} height={520} />
+                <DashboardShowcase variant={item.variant} />
                 <div className="p-6">
                   <h3 className="text-2xl font-semibold leading-tight text-white">
                     {item.title}

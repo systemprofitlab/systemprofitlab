@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAffiliateTypeForOfferSlug } from "../../lib/affiliate";
+import DashboardShowcase from "../../components/DashboardShowcase";
 import FeatureIcon from "../../components/FeatureIcon";
 import Navbar from "../../components/Navbar";
-import ProductMockup from "../../components/ProductMockup";
 import {
   audiencePaths,
   buildTrackedOfferHref,
@@ -86,7 +86,7 @@ export default async function OfferPage({ params }: OfferPageProps) {
             </div>
 
             <div className="space-y-5">
-              <ProductMockup compact />
+              <DashboardShowcase variant="analytics" />
               <div className="panel-surface-strong p-6">
                 <FeatureIcon name={getOfferIcon(offer.theme)} />
                 <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">

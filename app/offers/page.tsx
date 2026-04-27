@@ -1,6 +1,6 @@
 import Link from "next/link";
+import DashboardShowcase from "../components/DashboardShowcase";
 import Navbar from "../components/Navbar";
-import ProductMockup from "../components/ProductMockup";
 import { buildTrackedOfferHref, offers } from "../lib/funnel";
 
 export default function OffersPage() {
@@ -21,7 +21,7 @@ export default function OffersPage() {
               launches, and direct trial access.
             </p>
           </div>
-          <ProductMockup compact />
+          <DashboardShowcase variant="automation" />
         </div>
       </section>
 
