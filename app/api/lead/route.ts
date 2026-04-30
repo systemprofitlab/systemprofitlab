@@ -1,56 +1,48 @@
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+import { NextResponse } from "next/server";
+
+type LeadPayload = {
+  email?: string;
+};
+
+function isEmail(value: unknown): value is string {
+  return typeof value === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
 
 export async function POST(request: Request) {
+  let payload: LeadPayload;
+
   try {
-    const body = (await request.json()) as {
-      email?: unknown;
-      source?: unknown;
-      affiliateType?: unknown;
-    };
-    const email = typeof body.email === "string" ? body.email.trim() : "";
-    const source = typeof body.source === "string" ? body.source : "systemprofitlab";
-    const affiliateType =
-      typeof body.affiliateType === "string" ? body.affiliateType : "trial";
-
-    if (!email || !emailPattern.test(email)) {
-      return Response.json(
-        { error: "Enter a valid email address." },
-        { status: 400 },
-      );
-    }
-
-    const webhookUrl = process.env.LEAD_WEBHOOK_URL;
-
-    if (webhookUrl) {
-      const webhookResponse = await fetch(webhookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email,
-          source,
-          affiliateType,
-          capturedAt: new Date().toISOString(),
-        }),
-      });
-
-      if (!webhookResponse.ok) {
-        return Response.json(
-          { error: "Lead service is unavailable. Please try again." },
-          { status: 502 },
-        );
-      }
-    } else {
-      console.info("New SystemProfitLab lead:", { email, source, affiliateType });
-    }
-
-    return Response.json({
-      success: true,
-      message: "You are in. Opening the next step now.",
-    });
+    payload = (await request.json()) as LeadPayload;
   } catch {
-    return Response.json(
-      { error: "We could not capture that lead. Please try again." },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
+
+  const email = payload.email;
+
+  if (!isEmail(email)) {
+    return NextResponse.json({ error: "A valid email is required" }, { status: 400 });
+  }
+
+  const lead = {
+    email: email.trim(),
+    source: "systemprofitlab.com",
+    leadMagnet: "Free SaaS Growth System Map",
+    submittedAt: new Date().toISOString(),
+  };
+
+  const webhookUrl = process.env.AFFILIATE_CLICK_WEBHOOK_URL;
+
+  if (webhookUrl) {
+    const webhookResponse = await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(lead),
+    });
+
+    if (!webhookResponse.ok) {
+      return NextResponse.json({ error: "Webhook failed" }, { status: 502 });
+    }
+  }
+
+  return NextResponse.json({ ok: true });
 }

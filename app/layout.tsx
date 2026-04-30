@@ -1,10 +1,39 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { siteUrl } from "@/lib/routes";
 
 export const metadata: Metadata = {
-  title: "SystemProfitLab | Growth Systems That Make Business Easier",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "SystemProfitLab | SaaS systems for modern business growth",
+    template: "%s | SystemProfitLab",
+  },
   description:
-    "SystemProfitLab helps business owners, creators, and agencies find the right HighLevel growth path for AI follow-up, automation, lead capture, booking, and easier operations.",
+    "SystemProfitLab helps entrepreneurs, creators, agencies, and service businesses explore SaaS tools for CRM, funnels, automation, lead capture, and client follow-up.",
+  keywords: [
+    "SystemProfitLab",
+    "GoHighLevel",
+    "HighLevel CRM",
+    "SaaS systems",
+    "business automation",
+    "lead automation",
+    "funnels",
+    "client management",
+    "marketing automation",
+    "CRM pipelines",
+  ],
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    title: "SystemProfitLab",
+    description:
+      "Discover the SaaS operating layer for lead capture, CRM, automation, booking, and follow-up.",
+    siteName: "SystemProfitLab",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -13,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body>{children}</body>
     </html>
   );
